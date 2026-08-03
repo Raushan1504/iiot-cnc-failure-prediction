@@ -80,6 +80,7 @@ El objetivo final del modelado matemático es su aplicación en la toma de decis
 
 * [Reporte Ejecutivo: Implementación de Mantenimiento Predictivo en Maquinaria CNC](report.md)
 
+* [Interactive Notebook available on Kaggle](https://www.kaggle.com/code/juanclopezdec/iiot-cnc-predictive-maintenance-random-forest)
 ---
 
 ## Autores
