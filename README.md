@@ -1,88 +1,87 @@
-# Predictive Maintenance ML Pipeline
 
-![Kaggle](https://road-to-kaggle-grandmaster.vercel.app/api/simple/{juanclopezdec})
-![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
-![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-Machine_Learning-F7931E?style=flat-square&logo=scikit-learn)
-![Pandas](https://img.shields.io/badge/Pandas-Data_Processing-150458?style=flat-square&logo=pandas)
-![Streamlit](https://img.shields.io/badge/Streamlit-Web_Deployment-FF4B4B?style=flat-square&logo=streamlit)
+Predictive Maintenance ML Pipeline
 
-## 1. Descripción del Proyecto
+"Kaggle" (https://road-to-kaggle-grandmaster.vercel.app/api/simple/{juanclopezdec})
+"Python" (https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
+"Scikit-Learn" (https://img.shields.io/badge/Scikit_Learn-Machine_Learning-F7931E?style=flat-square&logo=scikit-learn)
+"Pandas" (https://img.shields.io/badge/Pandas-Data_Processing-150458?style=flat-square&logo=pandas)
+"Streamlit" (https://img.shields.io/badge/Streamlit-Web_Deployment-FF4B4B?style=flat-square&logo=streamlit)
 
-Sistema predictivo integral (End-to-End) diseñado para anticipar fallas mecánicas críticas en maquinaria industrial CNC mediante el análisis de telemetría de sensores IIoT en tiempo real. 
+1. Project Description
 
-El proyecto resuelve el alto costo operativo del tiempo de inactividad no planificado (Downtime) en líneas de manufactura, facilitando la transición corporativa de un modelo de mantenimiento reactivo a un esquema de mantenimiento basado en condición (CBM) y guiado por datos.
+An end-to-end predictive system designed to anticipate critical mechanical failures in industrial CNC machinery by analyzing real-time IIoT sensor telemetry.
 
-> [!IMPORTANT]
-> Por políticas de control de versiones y confidencialidad, el conjunto de datos original no se encuentra alojado en este repositorio. Para replicar el entrenamiento desde el Notebook, es necesario descargar el "AI4I 2020 Predictive Maintenance Dataset" y alojarlo en el directorio `data/raw/`.
+The project addresses the high operational cost of unplanned downtime in manufacturing lines by enabling the transition from a reactive maintenance model to a condition-based maintenance (CBM) approach driven by data.
 
-## 2. Impacto Analítico
+«[!IMPORTANT]
+For version control and confidentiality purposes, the original dataset is not included in this repository. To reproduce the training process from the Notebook, download the "AI4I 2020 Predictive Maintenance Dataset" and place it in the "data/raw/" directory.»
 
-* **Optimización de Tiempo de Actividad:** Se logró aislar y prevenir el riesgo de fallas catastróficas en fresadoras industriales, alcanzando una tasa de detección anticipada del 69% (Sensibilidad/Recall) frente a un margen de error histórico asimétrico, mediante la instanciación de un algoritmo Random Forest con ponderación de clases en Scikit-Learn.
-* **Diagnóstico de Fiabilidad:** Se incrementó la asertividad operativa en planta, logrando un 70% de precisión real en las alertas de mantenimiento emitidas, aplicando técnicas de estandarización de varianza (`StandardScaler`) sobre lecturas brutas de termodinámica y torque.
-* **Despliegue Operativo:** Se democratizó el acceso al motor de inferencia matemático, reduciendo el tiempo de diagnóstico manual a milisegundos, mediante el desarrollo de una interfaz web reactiva desplegada localmente con Streamlit y la serialización de artefactos con Joblib.
+2. Analytical Impact
 
-## 3. Stack Tecnológico
+* Downtime Optimization: The system achieved a 69% early failure detection rate (Sensitivity/Recall) for critical industrial milling machine failures, addressing an asymmetric error margin through the implementation of a class-weighted Random Forest algorithm using Scikit-Learn.
 
-| Tecnología | Versión | Función en la Arquitectura |
-| :--- | :--- | :--- |
-| **Python** | 3.10+ | Lenguaje base para el desarrollo del script y la canalización de datos. |
-| **Scikit-Learn** | 1.2+ | Estandarización matemática, modelado algorítmico y evaluación estadística. |
-| **Pandas** | 2.0+ | Ingesta de datos multiorigen, manipulación tabular e ingeniería de características. |
-| **Streamlit** | 1.20+ | Framework declarativo para la construcción y despliegue del frontend analítico. |
-| **Joblib** | 1.3+ | Persistencia y serialización de modelos matemáticos hacia el disco duro. |
+* Reliability Diagnostics: Operational accuracy was improved, achieving 70% precision in maintenance alerts by applying variance standardization ("StandardScaler") to raw thermodynamic and torque measurements.
 
-## 4. Estructura del Proyecto
+* Operational Deployment: Access to the mathematical inference engine was simplified, reducing manual diagnostic time to milliseconds through the development of a reactive web interface using Streamlit and the serialization of machine learning artifacts with Joblib.
 
-```text
+3. Technology Stack
+
+Technology| Version| Role in the Architecture
+Python| 3.10+| Core programming language for script development and the data pipeline.
+Scikit-Learn| 1.2+| Mathematical standardization, algorithmic modeling, and statistical evaluation.
+Pandas| 2.0+| Multi-source data ingestion, tabular data manipulation, and feature engineering.
+Streamlit| 1.20+| Declarative framework for building and deploying the analytical frontend.
+Joblib| 1.3+| Persistence and serialization of machine learning models to disk.
+
+4. Project Structure
+
 predictive-maintenance-ml-pipeline/
 ├── app/
-│   └── app.py                  # Interfaz de usuario y motor de inferencia (Streamlit)
+│   └── app.py                  # User interface and inference engine (Streamlit)
 ├── data/
-│   ├── processed/              # (Ignorado en Git) Directorio para datos limpios
+│   ├── processed/              # (Ignored by Git) Directory for cleaned data
 │   │   └── .gitkeep
-│   └── raw/                    # (Ignorado en Git) Conjunto de datos originales
+│   └── raw/                    # (Ignored by Git) Original dataset
 │       └── .gitkeep
 ├── models/
-│   ├── rf_model.joblib         # Cerebro algorítmico exportado
-│   └── scaler.joblib           # Artefacto de preprocesamiento estadístico
+│   ├── rf_model.joblib         # Exported machine learning model
+│   └── scaler.joblib           # Statistical preprocessing artifact
 ├── notebooks/
-│   └── 01_eda_and_cleaning.ipynb # Prototipado, validación cruzada y entrenamiento
-├── venv/                       # Entorno virtual aislado
-├── .gitignore                  
-├── requirements.txt            # Dependencias estrictas para replicabilidad
-├── report.md                   # Análisis cualitativo de resultados
-└── README.md                   
+│   └── 01_eda_and_cleaning.ipynb # EDA, validation, and model training
+├── venv/                       # Isolated virtual environment
+├── .gitignore
+├── requirements.txt            # Strict dependencies for reproducibility
+├── report.md                   # Qualitative analysis of results
+└── README.md
 
-```
+5. Operational Workflow
 
-## 5. Flujo de Operación
+The system architecture abstracts the statistical complexity behind a structured linear inference cycle:
 
-La arquitectura del sistema abstrae la complejidad estadística detrás de un ciclo de inferencia lineal estructurado de la siguiente manera:
-
-```mermaid
 graph TD
-    A[Operador en Planta] -->|Ingreso de Telemetría| B(Streamlit UI)
+    A[Plant Operator] -->|Telemetry Input| B(Streamlit UI)
     B -->|DataFrame| C{Scaler.joblib}
-    C -->|Normalización de Escala| D{RF_Model.joblib}
-    D -->|Inferencia Matemática| E[Cálculo de Probabilidad]
-    E --> F{Probabilidad > Umbral?}
-    F -->|Sí| G[Alerta Crítica: Paro Sugerido]
-    F -->|No| H[Operación Estable]
+    C -->|Scale Normalization| D{RF_Model.joblib}
+    D -->|Mathematical Inference| E[Probability Calculation]
+    E --> F{Probability > Threshold?}
+    F -->|Yes| G[Critical Alert: Shutdown Recommended]
+    F -->|No| H[Stable Operation]
 
-```
+«[!TIP]
+Local Execution: To launch the predictive system interface, make sure the dependencies listed in "requirements.txt" are installed in your virtual environment, then run the following command from the repository root:
 
-> [!TIP]
-> **Ejecución Local:** Para arrancar la interfaz del sistema predictivo, asegúrese de tener instaladas las dependencias de `requirements.txt` en su entorno virtual y ejecute el comando `streamlit run app/app.py` desde la raíz del repositorio.
+"streamlit run app/app.py"»
 
-## 6. Documentación y Reportes de Negocio
+6. Documentation and Business Reports
 
-El objetivo final del modelado matemático es su aplicación en la toma de decisiones operativas. Para consultar el desglose de los hallazgos técnicos, la justificación de rentabilidad frente a la matriz de confusión y el manual de acción operativo, revise la documentación gerencial anexa:
+The ultimate goal of the mathematical modeling is to support operational decision-making. For a detailed breakdown of the technical findings, the business justification based on the confusion matrix, and the operational action plan, refer to the attached management documentation:
 
-* [Reporte Ejecutivo: Implementación de Mantenimiento Predictivo en Maquinaria CNC](report.md)
+* "Executive Report: Implementation of Predictive Maintenance in CNC Machinery" (report.md)
 
-* [Interactive Notebook available on Kaggle](https://www.kaggle.com/code/juanclopezdec/iiot-cnc-predictive-maintenance-random-forest)
+* "Interactive Notebook available on Kaggle" (https://www.kaggle.com/code/juanclopezdec/iiot-cnc-predictive-maintenance-random-forest)
+
 ---
 
-## Autores
+Authors
 
-* **Juan Carlos López** - [JuanEnC](http://github.com/JuanEnC)
+* Juan Carlos López - "JuanEnC" (http://github.com/JuanEnC)
