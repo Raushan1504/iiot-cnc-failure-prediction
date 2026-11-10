@@ -60,17 +60,15 @@ The system architecture abstracts the statistical complexity behind a structured
 
 graph TD
     A[Plant Operator] -->|Telemetry Input| B(Streamlit UI)
-    B -->|DataFrame| C{Scaler.joblib}
-    C -->|Scale Normalization| D{RF_Model.joblib}
-    D -->|Mathematical Inference| E[Probability Calculation]
-    E --> F{Probability > Threshold?}
-    F -->|Yes| G[Critical Alert: Shutdown Recommended]
-    F -->|No| H[Stable Operation]
+    B -->|Engineered Features| C{Selected Model Pipeline}
+    C --> D[Failure Probability or Torque Prediction]
 
 «[!TIP]
-Local Execution: To launch the predictive system interface, make sure the dependencies listed in "requirements.txt" are installed in your virtual environment, then run the following command from the repository root:
+Local Execution: Place the AI4I dataset at `data/raw/ai4i2020.csv`, install dependencies from `requirements.txt`, then run these commands from the repository root:
 
-"streamlit run app/app.py"»
+`python -m app.train_models`
+
+`python -m streamlit run app/app.py`»
 
 6. Documentation and Business Reports
 
@@ -85,3 +83,12 @@ The ultimate goal of the mathematical modeling is to support operational decisio
 Authors
 
 * Juan Carlos López - "JuanEnC" (http://github.com/JuanEnC)
+
+
+## PBL 1 & 2 Extension (Machine Learning Course)
+
+* `notebooks/02_pbl1_ml_analysis.ipynb`: full ML analysis (EDA, linear/Bayesian/kernel regression & classification, **Unsupervised Clustering**, **Hidden Markov Model (HMM)**, and **Ensemble Learning**), executed with outputs and plots.
+* `app/model_pipeline.py` & `app/app.py`: interactive Streamlit dashboard and pipeline supporting Classification, Regression, Clustering (`K-Means`, `GMM/EM`), Hidden Markov Model (`GaussianHMMClassifier` with Baum-Welch EM & Viterbi decoding), and Ensemble Learning (`Random Forest`, `Gradient Boosting`, `AdaBoost`, `Stacking`).
+* `PBL1_report.md`: written summary report covering all implemented paradigms.
+* `data/processed/regression_results.csv`, `classification_results.csv`, `clustering_results.csv`, `hmm_results.csv`: quantitative evaluation tables.
+* Dataset expected at `data/raw/ai4i2020.csv`.
