@@ -80,11 +80,6 @@ The ultimate goal of the mathematical modeling is to support operational decisio
 
 ---
 
-Authors
-
-* Juan Carlos López - "JuanEnC" (http://github.com/JuanEnC)
-
-
 ## PBL 1 & 2 Extension (Machine Learning Course)
 
 * `notebooks/02_pbl1_ml_analysis.ipynb`: full ML analysis (EDA, linear/Bayesian/kernel regression & classification, **Unsupervised Clustering**, **Hidden Markov Model (HMM)**, and **Ensemble Learning**), executed with outputs and plots.
